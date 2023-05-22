@@ -9,6 +9,14 @@
         <Optimize>False</Optimize>
         <DebugType>embedded</DebugType>
     </PropertyGroup>
+    <ItemGroup>
+      <None Remove="Assets\clonetrooper.bundle" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="BottomPath\" />
+      <Folder Include="MiddlePath\" />
+      <Folder Include="TopPath\" />
+    </ItemGroup>
 
     <Import Project="..\btd6.targets" />
 </Project>
