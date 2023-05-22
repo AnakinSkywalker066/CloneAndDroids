@@ -43,14 +43,7 @@ public class Clone : ModTower
             weaponModel.animateOnMainAttack = true;
         }
     }
-    public static void OnTowerPlace(Tower tower)
-    {
-        if (tower.towerModel.name.Contains("Clone"))
-        {   
-            tower.Node.graphic.GetComponent<Animator>().StopPlayback();
-            tower.Node.graphic.GetComponent<Animator>().Play("TowerPlace");
-        }
-    }
+    
     public static void OnWeaponFire(Tower tower)
     {
         if (tower.towerModel.name.Contains("Clone"))
@@ -59,11 +52,5 @@ public class Clone : ModTower
             tower.Node.graphic.GetComponent<Animator>().Play("Fire");
         }
     }
-    public static void OnIdle(Tower tower)
-    {
-        if (tower.towerModel.name.Contains("Clone"))
-        {
-            
-        }
-    }
+    
 }
