@@ -1,8 +1,6 @@
 ﻿using MelonLoader;
 using BTD_Mod_Helper;
 using CloneWars;
-using UnityEngine;
-using Il2Cpp;
 
 [assembly: MelonInfo(typeof(CloneWars.CloneWars), ModHelperData.Name, ModHelperData.Version, ModHelperData.RepoOwner)]
 [assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
