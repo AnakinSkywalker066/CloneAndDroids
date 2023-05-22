@@ -1,5 +1,4 @@
 ﻿using BTD_Mod_Helper.Api.Display;
-using CloneWars.Clones;
 
 namespace CloneWars
 {

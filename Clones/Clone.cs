@@ -1,22 +1,12 @@
 ﻿using BTD_Mod_Helper.Api.Towers;
 using BTD_Mod_Helper.Extensions;
 using Il2Cpp;
-using Il2CppAssets.Scripts.Models;
 using Il2CppAssets.Scripts.Models.GenericBehaviors;
 using Il2CppAssets.Scripts.Models.Towers;
 using Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors;
 using Il2CppAssets.Scripts.Models.TowerSets;
-using Il2CppAssets.Scripts.Simulation.Objects;
 using Il2CppAssets.Scripts.Simulation.Towers;
-using Il2CppAssets.Scripts.Simulation.Towers.Weapons;
-using static MelonLoader.MelonLogger;
 using UnityEngine;
-using HarmonyLib;
-using Il2CppAssets.Scripts.Simulation.Towers.Behaviors.Attack;
-using Il2CppAssets.Scripts.Unity.Display.Animation;
-using Il2CppAssets.Scripts.Simulation.Display;
-using Il2CppAssets.Scripts.Unity.Towers.Behaviors;
-using UnityEngine.Playables;
 
 namespace CloneWars.Clones;
 
