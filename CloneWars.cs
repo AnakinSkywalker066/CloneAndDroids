@@ -15,5 +15,6 @@ public class CloneWars : BloonsTD6Mod
     public override void OnApplicationStart()
     {
         ModHelper.Msg<CloneWars>("Clone Wars Mod Has loaded!");
+        ModHelper.Msg<CloneWars>("Message Me If There Are Any Bugs");
     }
 }
