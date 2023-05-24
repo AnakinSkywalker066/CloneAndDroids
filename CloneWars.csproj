@@ -10,7 +10,7 @@
         <DebugType>embedded</DebugType>
     </PropertyGroup>
     <ItemGroup>
-      <None Remove="Assets\clonetrooper.bundle" />
+      <None Remove="Assets\clone.bundle" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="BottomPath\" />

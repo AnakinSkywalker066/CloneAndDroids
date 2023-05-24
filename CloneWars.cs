@@ -15,4 +15,5 @@ public class CloneWars : BloonsTD6Mod
         ModHelper.Msg<CloneWars>("Clone Wars Mod Has loaded!");
         ModHelper.Msg<CloneWars>("Message Me If There Are Any Bugs");
     }
+
 }

@@ -4,7 +4,12 @@ namespace CloneWars
 {
     public class CloneDisplay : ModCustomDisplay
     {
-        public override string AssetBundleName => "clonetrooper";
-        public override string PrefabName => "CloneTrooper";
+        public override string AssetBundleName => "clone";
+        public override string PrefabName => "Clone";
+    }
+    public class BoltDisplay : ModCustomDisplay
+    {
+        public override string AssetBundleName => "clone";
+        public override string PrefabName => "Bolt";
     }
 }
