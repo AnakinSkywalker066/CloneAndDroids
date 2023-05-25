@@ -25,5 +25,9 @@ public class CloneWars : BloonsTD6Mod
         weapon.attack.tower.Node.graphic.gameObject.GetComponent<Animator>().SetBool("isAttacking", true);
     }
 }
-
+[HarmonyPatch(typeof(WeaponBehavior), nameof(CheckAirUnitOverTrack))]
+public class CheckAirUnitOverTrack_Patch
+{
+            
+}
   

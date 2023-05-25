@@ -50,6 +50,5 @@ public class CloneTrooper : ModTower
     }
     public override bool IsValidCrosspath(int[] tiers) =>
        ModHelper.HasMod("UltimateCrosspathing") || base.IsValidCrosspath(tiers);
-
-   
+      
 }
