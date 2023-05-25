@@ -1,20 +1,13 @@
 ﻿using BTD_Mod_Helper;
 using BTD_Mod_Helper.Api.Towers;
 using BTD_Mod_Helper.Extensions;
-using HarmonyLib;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Models.GenericBehaviors;
 using Il2CppAssets.Scripts.Models.Towers;
 using Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors;
 using Il2CppAssets.Scripts.Models.TowerSets;
-using Il2CppAssets.Scripts.Simulation.Towers;
-using Il2CppAssets.Scripts.Simulation.Towers.Weapons;
-using Il2CppAssets.Scripts.Unity.Towers.Behaviors.Attack;
-using MelonLoader;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace CloneWars.Clones;
 
@@ -38,8 +31,7 @@ public class CloneTrooper : ModTower
         towerModel.GetDescendant<DamageModel>().immuneBloonProperties = 0;
         towerModel.GetBehavior<DisplayModel>().scale = towerModel.GetBehavior<DisplayModel>().scale * 1f;
         //Scale required for custom models to be recognized
-        towerModel.displayScale = 25f;
-        towerModel.isGlobalRange = true;
+        towerModel.displayScale = 23f;
         towerModel.range = 30f;
         
         foreach (var weaponModel in towerModel.GetWeapons())
@@ -48,7 +40,6 @@ public class CloneTrooper : ModTower
             weaponModel.Rate = 0.5f;
             weaponModel.projectile.pierce = 10;
             weaponModel.projectile.GetDamageModel().damage = 1;
-            
             weaponModel.projectile.scale = 1f;
         }
     }
