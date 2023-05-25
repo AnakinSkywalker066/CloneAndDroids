@@ -11,17 +11,6 @@
     </PropertyGroup>
     <ItemGroup>
       <None Remove="Assets\clone.bundle" />
-      <None Remove="Assets\DC15-1.ogg" />
-      <None Remove="Assets\DC15-1.wav" />
-      <None Remove="Assets\DC15-2.ogg" />
-      <None Remove="Assets\DC15-3.ogg" />
-      <None Remove="Assets\DC15-4.ogg" />
-      <None Remove="Properties\DC15-3.wav" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="BottomPath\" />
-      <Folder Include="MiddlePath\" />
-      <Folder Include="TopPath\" />
     </ItemGroup>
 
     <Import Project="..\btd6.targets" />

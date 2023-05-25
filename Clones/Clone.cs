@@ -21,9 +21,9 @@ public class CloneTrooper : ModTower
     public override TowerSet TowerSet => TowerSet.Military;
     public override string BaseTower => TowerType.DartMonkey;
     public override int Cost => 500;
-    public override int TopPathUpgrades => 0;
-    public override int MiddlePathUpgrades => 0;
-    public override int BottomPathUpgrades => 0;
+    public override int TopPathUpgrades => 5;
+    public override int MiddlePathUpgrades => 5;
+    public override int BottomPathUpgrades => 5;
     public override string Portrait => "Icon";
     public override string Icon => "Icon";
     public override bool DontAddToShop => false;
