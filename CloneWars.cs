@@ -20,7 +20,8 @@ public class CloneWars : BloonsTD6Mod
     public override void OnWeaponFire(Weapon weapon)
     {   
         base.OnWeaponFire(weapon);
-        weapon.attack.tower.Node.graphic.gameObject.GetComponent<Animator>().SetBool("isAttacking", true);        
+        weapon.attack.tower.Node.graphic.gameObject.GetComponent<Animator>().SetBool("isAttacking", true);
+        
     }
     
 }
