@@ -65,11 +65,9 @@ public class CloneTrooper : ModTower
 [HarmonyPatch(typeof(Weapon), nameof(Weapon.SpawnDart))]
 internal static class Weapon_SpawnDart
 {
-    
     [HarmonyPostfix]
     public static void Postfix(Weapon __instance)
     {
-        
         if (__instance.attack.tower.model.name.Contains("Clone"))
         {
             __instance.attack.tower.Node.graphic.GetComponent<Animator>().StopPlayback();
