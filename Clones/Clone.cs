@@ -32,7 +32,7 @@ public class CloneTrooper : ModTower
         towerModel.GetBehavior<DisplayModel>().scale = towerModel.GetBehavior<DisplayModel>().scale * 1f;
         //Scale required for custom models to be recognized
         towerModel.displayScale = 23f;
-        towerModel.range = 30f;
+        towerModel.range = 50;
         
         foreach (var weaponModel in towerModel.GetWeapons())
         {
