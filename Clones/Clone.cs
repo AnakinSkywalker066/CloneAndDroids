@@ -6,11 +6,12 @@ using Il2Cpp;
 using Il2CppAssets.Scripts.Models.GenericBehaviors;
 using Il2CppAssets.Scripts.Models.Towers;
 using Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors;
-using Il2CppAssets.Scripts.Models.Towers.Weapons;
 using Il2CppAssets.Scripts.Models.TowerSets;
+using Il2CppAssets.Scripts.Simulation.Towers;
 using Il2CppAssets.Scripts.Simulation.Towers.Weapons;
-using JetBrains.Annotations;
+using Il2CppAssets.Scripts.Unity.Towers.Behaviors.Attack;
 using MelonLoader;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -29,6 +30,7 @@ public class CloneTrooper : ModTower
     public override string Icon => "Icon";
     public override bool DontAddToShop => false;
     public override string Description => "FOR THE REPUBLIC";
+    
     public override void ModifyBaseTowerModel(TowerModel towerModel)
     {
         towerModel.GetAttackModel().weapons[0].projectile.GetDamageModel().immuneBloonProperties = (BloonProperties)1;
@@ -46,8 +48,8 @@ public class CloneTrooper : ModTower
             weaponModel.Rate = 0.5f;
             weaponModel.projectile.pierce = 10;
             weaponModel.projectile.GetDamageModel().damage = 1;
-            weaponModel.projectile.scale = 100f;
             
+            weaponModel.projectile.scale = 1f;
         }
     }
 
@@ -55,11 +57,8 @@ public class CloneTrooper : ModTower
     {
         return towerSet.First(model => model.towerId == TowerType.SniperMonkey).towerIndex;
     }
-
     public override bool IsValidCrosspath(int[] tiers) =>
        ModHelper.HasMod("UltimateCrosspathing") || base.IsValidCrosspath(tiers);
 
-
-    
+   
 }
-
