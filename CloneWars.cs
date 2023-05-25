@@ -3,7 +3,6 @@ using BTD_Mod_Helper;
 using CloneWars;
 using UnityEngine;
 using HarmonyLib;
-using Il2CppAssets.Scripts.Simulation.Towers.Behaviors.Attack;
 using Il2CppAssets.Scripts.Simulation.Towers.Weapons;
 using Il2CppAssets.Scripts.Simulation.Towers.Weapons.Behaviors;
 
@@ -20,14 +19,7 @@ public class CloneWars : BloonsTD6Mod
         ModHelper.Msg<CloneWars>("Message Me On Discord @AnakinSkywalker066#3694 If There Are Any Bugs");
     }
 
-    public override void OnWeaponFire(Weapon weapon)
-    {   
-        weapon.attack.tower.Node.graphic.gameObject.GetComponent<Animator>().SetBool("isAttacking", true);
-    }
+    
 }
-[HarmonyPatch(typeof(WeaponBehavior), nameof(CheckAirUnitOverTrack))]
-public class CheckAirUnitOverTrack_Patch
-{
-            
-}
+
   

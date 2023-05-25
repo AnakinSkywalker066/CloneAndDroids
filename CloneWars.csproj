@@ -11,6 +11,8 @@
     </PropertyGroup>
     <ItemGroup>
       <None Remove="Assets\clone.bundle" />
+      <None Remove="Assets\DC15-1.wav" />
+      <None Remove="Properties\DC15-3.wav" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="BottomPath\" />
