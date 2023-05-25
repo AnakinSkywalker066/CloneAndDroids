@@ -9,11 +9,9 @@ using Il2CppAssets.Scripts.Models.Towers;
 using Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors;
 using Il2CppAssets.Scripts.Models.TowerSets;
 using Il2CppAssets.Scripts.Simulation.Towers.Weapons;
-using Il2CppSystem;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using System;
 using Random = System.Random;
 
 namespace CloneWars.Clones;
@@ -30,7 +28,8 @@ public class CloneTrooper : ModTower
     public override string Icon => "Icon";
     public override bool DontAddToShop => false;
     public override string Description => "FOR THE REPUBLIC";
-
+    public override int GetTowerIndex(List<TowerDetailsModel> towerSet) => towerSet.First(model => model.towerId == TowerType.SniperMonkey).towerIndex;
+    public override bool IsValidCrosspath(int[] tiers) => ModHelper.HasMod("UltimateCrosspathing") || base.IsValidCrosspath(tiers);
     public override void ModifyBaseTowerModel(TowerModel towerModel)
     {
         towerModel.GetAttackModel().weapons[0].projectile.GetDamageModel().immuneBloonProperties = (BloonProperties)1;
@@ -39,8 +38,8 @@ public class CloneTrooper : ModTower
         towerModel.GetBehavior<DisplayModel>().scale = towerModel.GetBehavior<DisplayModel>().scale * 1f;
         //Scale required for custom models to be recognized
         towerModel.displayScale = 20;
-        towerModel.radius = 30;
-        towerModel.range = 40;
+        towerModel.radius = 20;
+        towerModel.range = 25;
 
         foreach (var weaponModel in towerModel.GetWeapons())
         {
@@ -52,15 +51,8 @@ public class CloneTrooper : ModTower
             weaponModel.projectile.GetDamageModel().damage = 1;
             weaponModel.projectile.scale = .9f;
         }
-        
-    }
 
-    public override int GetTowerIndex(List<TowerDetailsModel> towerSet)
-    {
-        return towerSet.First(model => model.towerId == TowerType.SniperMonkey).towerIndex;
     }
-
-    public override bool IsValidCrosspath(int[] tiers) => ModHelper.HasMod("UltimateCrosspathing") || base.IsValidCrosspath(tiers);
 }
 [HarmonyPatch(typeof(Weapon), nameof(Weapon.SpawnDart))]
 internal static class Weapon_SpawnDart
