@@ -14,16 +14,16 @@ using System.Linq;
 using UnityEngine;
 using Random = System.Random;
 
-namespace CloneWars.Clones;
+namespace CloneWars;
 
 public class CloneTrooper : ModTower
 {
     public override TowerSet TowerSet => TowerSet.Military;
     public override string BaseTower => TowerType.DartMonkey;
     public override int Cost => 500;
-    public override int TopPathUpgrades => 5;
-    public override int MiddlePathUpgrades => 5;
-    public override int BottomPathUpgrades => 5;
+    public override int TopPathUpgrades => 1;
+    public override int MiddlePathUpgrades => 0;
+    public override int BottomPathUpgrades => 0;
     public override string Portrait => "Icon";
     public override string Icon => "Icon";
     public override bool DontAddToShop => false;
@@ -40,7 +40,6 @@ public class CloneTrooper : ModTower
         towerModel.displayScale = 20;
         towerModel.radius = 20;
         towerModel.range = 25;
-
         foreach (var weaponModel in towerModel.GetWeapons())
         {
             weaponModel.ejectX = 0.866709f;
@@ -51,7 +50,6 @@ public class CloneTrooper : ModTower
             weaponModel.projectile.GetDamageModel().damage = 1;
             weaponModel.projectile.scale = .9f;
         }
-
     }
 }
 [HarmonyPatch(typeof(Weapon), nameof(Weapon.SpawnDart))]
@@ -64,7 +62,7 @@ internal static class Weapon_SpawnDart
         {
             __instance.attack.tower.Node.graphic.GetComponent<Animator>().StopPlayback();
             __instance.attack.tower.Node.graphic.GetComponent<Animator>().Play("Fire");
-            ModContent.GetAudioClip<CloneWars>("DC15-" + new Random().Next(1, 5)).Play();  
+            ModContent.GetAudioClip<CloneWars>("DC15-" + new Random().Next(1, 5)).Play();
         }
     }
 }
