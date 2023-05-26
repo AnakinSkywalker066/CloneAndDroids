@@ -7,6 +7,7 @@ using Il2CppAssets.Scripts.Models.Towers;
 using Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors;
 using Il2CppAssets.Scripts.Models.TowerSets;
 using Il2CppAssets.Scripts.Simulation.Towers.Weapons;
+using System.IO;
 using UnityEngine;
 using Random = System.Random;
 
@@ -46,19 +47,33 @@ public class CloneTrooper : ModTower
         }
     }
 
-}
-[HarmonyPatch(typeof(Weapon), nameof(Weapon.SpawnDart))]
-internal static class Weapon_SpawnDart
-{
-    [HarmonyPostfix]
-    public static void Postfix(Weapon __instance)
+    [HarmonyPatch(typeof(Weapon), nameof(Weapon.SpawnDart))]
+    internal static class Weapon_SpawnDart
     {
-        if (__instance.attack.tower.model.name.Contains("Clone"))
+        [HarmonyPostfix]
+        public static void Postfix(Weapon __instance)
         {
-            __instance.attack.tower.Node.graphic.GetComponent<Animator>().StopPlayback();
-            __instance.attack.tower.Node.graphic.GetComponent<Animator>().Play("Fire");
-            ModContent.GetAudioClip<CloneWars>("DC15-" + new Random().Next(1, 5)).Play();
+            if (__instance.attack.tower.model.name.Contains("Clone"))
+            {
+                __instance.attack.tower.Node.graphic.GetComponent<Animator>().StopPlayback();
+                __instance.attack.tower.Node.graphic.GetComponent<Animator>().Play("Fire");
+                GetAudioClip<CloneWars>("DC15-" + new Random().Next(1, 5)).Play();
+            }
         }
+    }
+    internal class Commander : ModUpgrade<CloneTrooper>
+    {
+        public override int Path => TOP;
+        public override int Cost => 1000;
+        public override int Tier => 1;
+        public override void ApplyUpgrade(TowerModel towerModel)
+        {
+           
+        }
+        public override string Description => "Test";
+        public override string Name => "Commander";
+        public override string Icon => "Icon";
+        public override string Portrait => "Icon";
     }
 }
 
