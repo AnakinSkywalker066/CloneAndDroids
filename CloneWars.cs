@@ -1,6 +1,6 @@
-﻿using MelonLoader;
-using BTD_Mod_Helper;
+﻿using BTD_Mod_Helper;
 using CloneWars;
+using MelonLoader;
 
 [assembly: MelonInfo(typeof(CloneWars.CloneWars), ModHelperData.Name, ModHelperData.Version, ModHelperData.RepoOwner)]
 [assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
@@ -16,7 +16,6 @@ public class CloneWars : BloonsTD6Mod
         ModHelper.Msg<CloneWars>("This Mod Include Alot of Custom SoundEffects");
     }
 
-    
+
 }
 
-  

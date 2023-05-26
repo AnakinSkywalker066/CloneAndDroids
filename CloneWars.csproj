@@ -11,11 +11,6 @@
     </PropertyGroup>
     <ItemGroup>
       <None Remove="Assets\clone.bundle" />
-      <None Remove="Assets\Comando-Icon.png" />
-      <None Remove="Assets\Comando-Portait.png" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="MiddlePath\" />
     </ItemGroup>
 
     <Import Project="..\btd6.targets" />

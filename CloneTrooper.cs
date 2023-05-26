@@ -1,16 +1,12 @@
-﻿using BTD_Mod_Helper;
-using BTD_Mod_Helper.Api;
+﻿using BTD_Mod_Helper.Api;
 using BTD_Mod_Helper.Api.Towers;
 using BTD_Mod_Helper.Extensions;
 using HarmonyLib;
 using Il2Cpp;
-using Il2CppAssets.Scripts.Models.GenericBehaviors;
 using Il2CppAssets.Scripts.Models.Towers;
 using Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors;
 using Il2CppAssets.Scripts.Models.TowerSets;
 using Il2CppAssets.Scripts.Simulation.Towers.Weapons;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Random = System.Random;
 
@@ -26,20 +22,18 @@ public class CloneTrooper : ModTower
     public override int BottomPathUpgrades => 0;
     public override string Portrait => "Icon";
     public override string Icon => "Icon";
-    public override bool DontAddToShop => false;
     public override string Description => "FOR THE REPUBLIC";
-    public override int GetTowerIndex(List<TowerDetailsModel> towerSet) => towerSet.First(model => model.towerId == TowerType.SniperMonkey).towerIndex;
-    public override bool IsValidCrosspath(int[] tiers) => ModHelper.HasMod("UltimateCrosspathing") || base.IsValidCrosspath(tiers);
+
     public override void ModifyBaseTowerModel(TowerModel towerModel)
     {
         towerModel.GetAttackModel().weapons[0].projectile.GetDamageModel().immuneBloonProperties = (BloonProperties)1;
         towerModel.ApplyDisplay<CloneDisplay>();
         towerModel.GetDescendant<DamageModel>().immuneBloonProperties = 0;
-        towerModel.GetBehavior<DisplayModel>().scale = towerModel.GetBehavior<DisplayModel>().scale * 1f;
         //Scale required for custom models to be recognized
         towerModel.displayScale = 20;
         towerModel.radius = 20;
         towerModel.range = 25;
+
         foreach (var weaponModel in towerModel.GetWeapons())
         {
             weaponModel.ejectX = 0.866709f;
@@ -51,6 +45,7 @@ public class CloneTrooper : ModTower
             weaponModel.projectile.scale = .9f;
         }
     }
+
 }
 [HarmonyPatch(typeof(Weapon), nameof(Weapon.SpawnDart))]
 internal static class Weapon_SpawnDart
@@ -66,3 +61,4 @@ internal static class Weapon_SpawnDart
         }
     }
 }
+
