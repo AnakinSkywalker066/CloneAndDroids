@@ -1,15 +1,12 @@
-﻿using BTD_Mod_Helper.Api;
+﻿using BTD_Mod_Helper;
 using BTD_Mod_Helper.Api.Towers;
 using BTD_Mod_Helper.Extensions;
-using HarmonyLib;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Models.Towers;
 using Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors;
 using Il2CppAssets.Scripts.Models.TowerSets;
-using Il2CppAssets.Scripts.Simulation.Towers.Weapons;
-using System.IO;
-using UnityEngine;
-using Random = System.Random;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CloneWars;
 
@@ -18,62 +15,40 @@ public class CloneTrooper : ModTower
     public override TowerSet TowerSet => TowerSet.Military;
     public override string BaseTower => TowerType.DartMonkey;
     public override int Cost => 500;
-    public override int TopPathUpgrades => 1;
+    public override int TopPathUpgrades => 5;
     public override int MiddlePathUpgrades => 0;
     public override int BottomPathUpgrades => 0;
-    public override string Portrait => "Icon";
+    public override string Portrait => "Basic";
     public override string Icon => "Icon";
     public override string Description => "FOR THE REPUBLIC";
-
+    public override string DisplayName => "Clone Trooper";
     public override void ModifyBaseTowerModel(TowerModel towerModel)
     {
-        towerModel.GetAttackModel().weapons[0].projectile.GetDamageModel().immuneBloonProperties = (BloonProperties)1;
+        
         towerModel.ApplyDisplay<CloneDisplay>();
-        towerModel.GetDescendant<DamageModel>().immuneBloonProperties = 0;
         //Scale required for custom models to be recognized
-        towerModel.displayScale = 20;
-        towerModel.radius = 20;
+        towerModel.displayScale = 17.5f;
+        towerModel.radius = 17.5f;
         towerModel.range = 25;
-
+        //Scale required for custom model to be recognized
         foreach (var weaponModel in towerModel.GetWeapons())
         {
             weaponModel.ejectX = 0.866709f;
-            weaponModel.ejectZ = 25.2906f;
+            weaponModel.ejectZ = 24.2906f;
             weaponModel.projectile.ApplyDisplay<BoltDisplay>();
-            weaponModel.Rate = .5f;
+            weaponModel.Rate = .60f;
             weaponModel.projectile.pierce = 10;
             weaponModel.projectile.GetDamageModel().damage = 1;
             weaponModel.projectile.scale = .9f;
         }
     }
+    
+    public override int GetTowerIndex(List<TowerDetailsModel> towerSet)
+    {
+        return towerSet.First(model => model.towerId == TowerType.SniperMonkey).towerIndex;
+    }
 
-    [HarmonyPatch(typeof(Weapon), nameof(Weapon.SpawnDart))]
-    internal static class Weapon_SpawnDart
-    {
-        [HarmonyPostfix]
-        public static void Postfix(Weapon __instance)
-        {
-            if (__instance.attack.tower.model.name.Contains("Clone"))
-            {
-                __instance.attack.tower.Node.graphic.GetComponent<Animator>().StopPlayback();
-                __instance.attack.tower.Node.graphic.GetComponent<Animator>().Play("Fire");
-                GetAudioClip<CloneWars>("DC15-" + new Random().Next(1, 5)).Play();
-            }
-        }
-    }
-    internal class Commander : ModUpgrade<CloneTrooper>
-    {
-        public override int Path => TOP;
-        public override int Cost => 1000;
-        public override int Tier => 1;
-        public override void ApplyUpgrade(TowerModel towerModel)
-        {
-           
-        }
-        public override string Description => "Test";
-        public override string Name => "Commander";
-        public override string Icon => "Icon";
-        public override string Portrait => "Icon";
-    }
+    public override bool IsValidCrosspath(int[] tiers) =>
+       ModHelper.HasMod("UltimateCrosspathing") || base.IsValidCrosspath(tiers);
 }
 

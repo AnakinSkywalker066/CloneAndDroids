@@ -10,7 +10,12 @@
         <DebugType>embedded</DebugType>
     </PropertyGroup>
     <ItemGroup>
+      <None Remove="Assets\Basic.png" />
       <None Remove="Assets\clone.bundle" />
+      <None Remove="Assets\CloneUpgrade.png" />
+      <None Remove="Assets\pngkey.com-clone-trooper-png-1971930.png" />
+      <None Remove="Assets\Top.png" />
+      <None Remove="Assets\Top5.png" />
     </ItemGroup>
 
     <Import Project="..\btd6.targets" />
