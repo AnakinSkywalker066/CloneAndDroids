@@ -8,12 +8,12 @@ namespace CloneWars.Upgrades.TopPath
 {
     public class CloneLieutenant : ModUpgrade<CloneTrooper>
     {
-        public override string Portrait => "Top5";
+        public override string Portrait => "CloneUpgrade";
         public override string Icon => "CloneUpgrade";
         public override int Cost => 5000;
         public override int Path => TOP;
         public override int Tier => 3;
-        public override string Description => "Clones Sergeants Are Now Able To Destroy Enemy With Ease";
+        public override string Description => "Clones Sergeants Are Now Able To Destroy Enemy With Ease.";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
             towerModel.IncreaseRange(+5);

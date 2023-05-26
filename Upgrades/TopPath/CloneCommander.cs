@@ -8,12 +8,12 @@ namespace CloneWars.Upgrades.TopPath
 {
     public class CloneCommander : ModUpgrade<CloneTrooper>
     {
-        public override string Portrait => "Top5";
-        public override string Icon => "CloneUpgrade";
+        public override string Portrait => "Icon5";
+        public override string Icon => "Icon5";
         public override int Cost => 35000;
         public override int Path => TOP;
         public override int Tier => 5;
-        public override string Description => "Clones Troopers After A Long Journey Have Now Become A Infamous Clone Commander";
+        public override string Description => "Clones Troopers After A Long Journey Have Now Become A Infamous Clone Commander.";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
             var KnockbackMarine = Game.instance.model.GetTowerFromId("NinjaMonkey-010").GetWeapon().projectile.GetBehavior<WindModel>().Duplicate<WindModel>();
