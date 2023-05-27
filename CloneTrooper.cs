@@ -15,7 +15,7 @@ public class CloneTrooper : ModTower
     public override string BaseTower => TowerType.DartMonkey;
     public override int Cost => 500;
     public override int TopPathUpgrades => 5;
-    public override int MiddlePathUpgrades => 4;
+    public override int MiddlePathUpgrades => 5;
     public override int BottomPathUpgrades => 0;
     public override string Portrait => "Basic";
     public override string Icon => "Icon";
@@ -27,8 +27,8 @@ public class CloneTrooper : ModTower
         towerModel.ApplyDisplay<CloneDisplay>();
         //Scale required for custom models to be recognized
         towerModel.displayScale = 20;
-        towerModel.radius = 17.5f;
-        towerModel.range = 40;
+        towerModel.radius = 15;
+        towerModel.range = 30;
         //Scale required for custom model to be recognized
         foreach (var weaponModel in towerModel.GetWeapons())
         {

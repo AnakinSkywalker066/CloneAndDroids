@@ -7,6 +7,7 @@ using Il2CppAssets.Scripts.Simulation.Objects;
 using Il2CppAssets.Scripts.Simulation.Towers;
 using Il2CppAssets.Scripts.Simulation.Towers.Weapons;
 using MelonLoader;
+using System.Security.Cryptography;
 using UnityEngine;
 using Random = System.Random;
 
@@ -38,7 +39,7 @@ public class CloneWars : BloonsTD6Mod
     {
         if (tower.model.name.Contains("Clone"))
         {
-            ModContent.GetAudioClip<CloneWars>("ClonePlace" + new Random().Next(1, 4)).Play();
+            ModContent.GetAudioClip<CloneWars>("ClonePlace" + new Random().Next(1, 5)).Play();
         }
     }
 
@@ -46,7 +47,7 @@ public class CloneWars : BloonsTD6Mod
     {
         if (tower.model.name.Contains("Clone"))
         {
-            ModContent.GetAudioClip<CloneWars>("Select" + new Random().Next(1, 3)).Play();
+            ModContent.GetAudioClip<CloneWars>("Select" + new Random().Next(1, 6)).Play();
         }
     }
 }
