@@ -2,6 +2,9 @@
 using BTD_Mod_Helper.Api;
 using BTD_Mod_Helper.Extensions;
 using CloneWars;
+using Il2CppAssets.Scripts.Models;
+using Il2CppAssets.Scripts.Simulation.Objects;
+using Il2CppAssets.Scripts.Simulation.Towers;
 using Il2CppAssets.Scripts.Simulation.Towers.Weapons;
 using MelonLoader;
 using UnityEngine;
@@ -28,6 +31,14 @@ public class CloneWars : BloonsTD6Mod
             weapon.attack.tower.Node.graphic.GetComponent<Animator>().StopPlayback();
             weapon.attack.tower.Node.graphic.GetComponent<Animator>().Play("Fire");
             ModContent.GetAudioClip<CloneWars>("DC15-" + new Random().Next(1, 5)).Play();
+        }
+    }
+
+    public override void OnTowerCreated(Tower tower, Entity target, Model modelToUse)
+    {
+        if (tower.model.name.Contains("Clone"))
+        {
+            ModContent.GetAudioClip<CloneWars>("ClonePlace" + new Random().Next(1, 4)).Play();
         }
     }
 }

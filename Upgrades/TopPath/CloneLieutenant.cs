@@ -19,6 +19,7 @@ namespace CloneWars.Upgrades.TopPath
             towerModel.IncreaseRange(+5);
             foreach (var weaponModel in towerModel.GetWeapons())
             {
+                weaponModel.projectile.GetDamageModel().damage += 10;
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Moab", "Moab", 1, 4, false, true));
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Bfb", "Bfb", 1, 4, false, true));
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Zomg", "Zomg", 1, 4, false, true));

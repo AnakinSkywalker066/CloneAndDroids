@@ -27,19 +27,20 @@ public class CloneTrooper : ModTower
         
         towerModel.ApplyDisplay<CloneDisplay>();
         //Scale required for custom models to be recognized
-        towerModel.displayScale = 17.5f;
+        towerModel.displayScale = 20;
         towerModel.radius = 17.5f;
-        towerModel.range = 25;
+        towerModel.range = 40;
         //Scale required for custom model to be recognized
         foreach (var weaponModel in towerModel.GetWeapons())
         {
             weaponModel.ejectX = 0.866709f;
             weaponModel.ejectZ = 24.2906f;
             weaponModel.projectile.ApplyDisplay<BoltDisplay>();
-            weaponModel.Rate = .60f;
+            weaponModel.Rate = 1;
             weaponModel.projectile.pierce = 10;
             weaponModel.projectile.GetDamageModel().damage = 1;
-            weaponModel.projectile.scale = .9f;
+            weaponModel.projectile.scale = 1;
+            weaponModel.projectile.GetDamageModel().immuneBloonProperties = BloonProperties.Purple;
         }
     }
     

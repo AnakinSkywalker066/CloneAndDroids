@@ -16,22 +16,23 @@ namespace CloneWars.Upgrades.TopPath
         public override string Description => "Clones Troopers After A Long Journey Have Now Become A Infamous Clone Commander.";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
-            var KnockbackMarine = Game.instance.model.GetTowerFromId("NinjaMonkey-010").GetWeapon().projectile.GetBehavior<WindModel>().Duplicate<WindModel>();
-            KnockbackMarine.chance = 0.05f;
-            KnockbackMarine.affectMoab = true;
-            KnockbackMarine.distanceMin = 30;
-            KnockbackMarine.distanceMax = 60;
+            var CrippleMoab = Game.instance.model.GetTowerFromId("SniperMonkey-500").GetWeapon().projectile.GetBehavior<SlowMaimMoabModel>().Duplicate();
+            CrippleMoab.badDuration = 1;
+            CrippleMoab.bfbDuration = 3;
+            CrippleMoab.ddtDuration = 1;
+            CrippleMoab.moabDuration = 5;
+            CrippleMoab.zomgDuration = 2;
             var attackModel = towerModel.GetAttackModel();
-            attackModel.weapons[0].projectile.AddBehavior(KnockbackMarine);
+            attackModel.weapons[0].projectile.AddBehavior(CrippleMoab);
             foreach (var weaponModel in towerModel.GetWeapons())
             {
                 weaponModel.projectile.pierce += 5;
-                weaponModel.projectile.GetDamageModel().damage += 5;
-                weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Moab", "Moab", 1, 55, false, true));
-                weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Bfb", "Bfb", 1, 80, false, true));
-                weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Zomg", "Zomg", 1, 230, false, true));
-                weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Ddt", "Ddt", 1, 190, false, true));
-                weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Bad", "Bad", 1, 390, false, true));
+                weaponModel.projectile.GetDamageModel().damage += 20;
+                weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Moab", "Moab", 1, 100, false, true));
+                weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Bfb", "Bfb", 1, 120, false, true));
+                weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Zomg", "Zomg", 1, 250, false, true));
+                weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Ddt", "Ddt", 1, 200, false, true));
+                weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Bad", "Bad", 1, 400, false, true));
                 
             }
 

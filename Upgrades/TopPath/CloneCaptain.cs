@@ -18,7 +18,7 @@ namespace CloneWars.Upgrades.TopPath
             foreach (var weaponModel in towerModel.GetWeapons())
             {
                 weaponModel.projectile.pierce += 5;
-                weaponModel.projectile.GetDamageModel().damage += 5;
+                weaponModel.projectile.GetDamageModel().damage += 10;
                 
             }
         }
