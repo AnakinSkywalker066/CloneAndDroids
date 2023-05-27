@@ -7,7 +7,7 @@ namespace CloneWars.Upgrades.TopPath
     public class CloneCaptain : ModUpgrade<CloneTrooper>
     {
         public override string Portrait => "Captain";
-        public override string Icon => "Captain";
+        public override string Icon => "Upgrade";
         public override int Cost => 10000;
         public override int Path => TOP;
         public override int Tier => 4;
@@ -19,7 +19,7 @@ namespace CloneWars.Upgrades.TopPath
             {
                 weaponModel.projectile.pierce += 5;
                 weaponModel.projectile.GetDamageModel().damage += 10;
-                
+
             }
         }
     }

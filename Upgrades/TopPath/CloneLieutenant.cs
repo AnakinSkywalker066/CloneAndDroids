@@ -1,15 +1,14 @@
 ﻿using BTD_Mod_Helper.Api.Towers;
-using Il2CppAssets.Scripts.Models.Towers.Behaviors;
-using Il2CppAssets.Scripts.Models.Towers;
 using BTD_Mod_Helper.Extensions;
+using Il2CppAssets.Scripts.Models.Towers;
 using Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors;
 
 namespace CloneWars.Upgrades.TopPath
 {
     public class CloneLieutenant : ModUpgrade<CloneTrooper>
     {
-        public override string Portrait => "CloneUpgrade";
-        public override string Icon => "CloneUpgrade";
+        public override string Portrait => "Cody";
+        public override string Icon => "Upgrade";
         public override int Cost => 5000;
         public override int Path => TOP;
         public override int Tier => 3;
@@ -24,7 +23,7 @@ namespace CloneWars.Upgrades.TopPath
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Bfb", "Bfb", 1, 4, false, true));
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Zomg", "Zomg", 1, 4, false, true));
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Ddt", "Ddt", 1, 4, false, true));
-                
+
             }
         }
     }

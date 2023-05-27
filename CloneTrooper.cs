@@ -3,7 +3,6 @@ using BTD_Mod_Helper.Api.Towers;
 using BTD_Mod_Helper.Extensions;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Models.Towers;
-using Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors;
 using Il2CppAssets.Scripts.Models.TowerSets;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +15,7 @@ public class CloneTrooper : ModTower
     public override string BaseTower => TowerType.DartMonkey;
     public override int Cost => 500;
     public override int TopPathUpgrades => 5;
-    public override int MiddlePathUpgrades => 0;
+    public override int MiddlePathUpgrades => 4;
     public override int BottomPathUpgrades => 0;
     public override string Portrait => "Basic";
     public override string Icon => "Icon";
@@ -24,7 +23,7 @@ public class CloneTrooper : ModTower
     public override string DisplayName => "Clone Trooper";
     public override void ModifyBaseTowerModel(TowerModel towerModel)
     {
-        
+
         towerModel.ApplyDisplay<CloneDisplay>();
         //Scale required for custom models to be recognized
         towerModel.displayScale = 20;
@@ -43,7 +42,7 @@ public class CloneTrooper : ModTower
             weaponModel.projectile.GetDamageModel().immuneBloonProperties = BloonProperties.Purple;
         }
     }
-    
+
     public override int GetTowerIndex(List<TowerDetailsModel> towerSet)
     {
         return towerSet.First(model => model.towerId == TowerType.SniperMonkey).towerIndex;

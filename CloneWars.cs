@@ -41,5 +41,13 @@ public class CloneWars : BloonsTD6Mod
             ModContent.GetAudioClip<CloneWars>("ClonePlace" + new Random().Next(1, 4)).Play();
         }
     }
+
+    public override void OnTowerSelected(Tower tower)
+    {
+        if (tower.model.name.Contains("Clone"))
+        {
+            ModContent.GetAudioClip<CloneWars>("Select" + new Random().Next(1, 3)).Play();
+        }
+    }
 }
 

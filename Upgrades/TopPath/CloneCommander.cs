@@ -9,11 +9,11 @@ namespace CloneWars.Upgrades.TopPath
     public class CloneCommander : ModUpgrade<CloneTrooper>
     {
         public override string Portrait => "Icon5";
-        public override string Icon => "Icon5";
+        public override string Icon => "Upgrade";
         public override int Cost => 35000;
         public override int Path => TOP;
         public override int Tier => 5;
-        public override string Description => "Clones Troopers After A Long Journey Have Now Become A Infamous Clone Commander.";
+        public override string Description => "Clones Troopers After A Long Journey Have Now Become An Infamous Clone Commander.";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
             var CrippleMoab = Game.instance.model.GetTowerFromId("SniperMonkey-500").GetWeapon().projectile.GetBehavior<SlowMaimMoabModel>().Duplicate();
@@ -27,13 +27,13 @@ namespace CloneWars.Upgrades.TopPath
             foreach (var weaponModel in towerModel.GetWeapons())
             {
                 weaponModel.projectile.pierce += 5;
-                weaponModel.projectile.GetDamageModel().damage += 20;
+                weaponModel.projectile.GetDamageModel().damage *= 20;
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Moab", "Moab", 1, 100, false, true));
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Bfb", "Bfb", 1, 120, false, true));
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Zomg", "Zomg", 1, 250, false, true));
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Ddt", "Ddt", 1, 200, false, true));
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Bad", "Bad", 1, 400, false, true));
-                
+
             }
 
         }
