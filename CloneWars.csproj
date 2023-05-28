@@ -17,6 +17,9 @@
       <None Remove="Assets\Top5.png" />
       <None Remove="Assets\Upgrade.png" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Upgrades\BottomPath\" />
+    </ItemGroup>
 
     <Import Project="..\btd6.targets" />
 </Project>

@@ -19,7 +19,7 @@ public class CloneTrooper : ModTower
     public override int BottomPathUpgrades => 0;
     public override string Portrait => "Basic";
     public override string Icon => "Icon";
-    public override string Description => "FOR THE REPUBLIC";
+    public override string Description => "FOR THE REPUBLIC. The Bloons Will Know The Power Of The Republic!";
     public override string DisplayName => "Clone Trooper";
     public override void ModifyBaseTowerModel(TowerModel towerModel)
     {
