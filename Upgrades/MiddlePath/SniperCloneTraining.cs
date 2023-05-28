@@ -1,9 +1,6 @@
 ﻿using BTD_Mod_Helper.Api.Towers;
 using BTD_Mod_Helper.Extensions;
-using Il2CppAssets.Scripts.Data.Knowledge.RelicKnowledge;
 using Il2CppAssets.Scripts.Models.Towers;
-using Il2CppAssets.Scripts.Simulation.Towers.Projectiles.Behaviors;
-using Il2CppAssets.Scripts.Unity;
 
 namespace CloneWars.Upgrades.MiddlePath
 {
