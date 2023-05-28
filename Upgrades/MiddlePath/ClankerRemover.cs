@@ -10,9 +10,9 @@ namespace CloneWars.Upgrades.MiddlePath
 {
     public class ClankerRemover : ModUpgrade<CloneTrooper>
     {
-        public override string Portrait => "Top";
+        public override string Portrait => "Middle4";
         public override string Icon => "Upgrade";
-        public override int Cost => 10000;
+        public override int Cost => 5000;
         public override int Path => MIDDLE;
         public override int Tier => 4;
         public override string Description => "Just Like This Clone Can Remove Clankers. This Trooper Can Remove Fortifications.";
@@ -23,9 +23,8 @@ namespace CloneWars.Upgrades.MiddlePath
             FortifyRemove.cleanseLead = true;
             FortifyRemove.cleanseRegen = true;
             FortifyRemove.cleanseCamo = true;
-            FortifyRemove.bloonTagExcludeList.Remove("Ddt");
-            FortifyRemove.bloonTagExcludeList.Remove("Bad");
-            FortifyRemove.bloonTagExcludeList.Remove("Zomg");
+            FortifyRemove.bloonTagExcludeList.Add("Moab");
+            FortifyRemove.bloonTagExcludeList.Add("Bfb");
             var AttackModel = towerModel.GetAttackModel();
             AttackModel.weapons[0].projectile.AddBehavior(FortifyRemove);
             AttackModel.weapons[0].projectile.collisionPasses = new int[] { 0, -1 };
