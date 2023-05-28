@@ -24,8 +24,7 @@ namespace CloneWars.Upgrades.MiddlePath
             FortifyRemove.bloonTagExcludeList.Remove("Ddt");
             FortifyRemove.bloonTagExcludeList.Remove("Bad");
             FortifyRemove.bloonTagExcludeList.Remove("Zomg");
-            FortifyRemove.bloonTagExcludeList.Remove("Moab");
-            FortifyRemove.bloonTagExcludeList.Remove("Bfb");
+            
             var AttackModel = towerModel.GetAttackModel();
             AttackModel.weapons[0].projectile.AddBehavior(FortifyRemove);
             AttackModel.weapons[0].projectile.collisionPasses = new int[] { 0, -1 };
