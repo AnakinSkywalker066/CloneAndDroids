@@ -6,7 +6,7 @@
 <h1 align="center">Clone Wars</h1>
 
 ### Clones In Bloons!
-<img alt="Assets/githubpage" height="400" src="Assets/image.png"/>
+<img alt="githubpage" height="400" src="Assets/githubpage.png"/>
 
 
 - Adds Clones From Star Wars!
