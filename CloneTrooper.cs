@@ -16,7 +16,7 @@ public class CloneTrooper : ModTower
     public override int Cost => 500;
     public override int TopPathUpgrades => 5;
     public override int MiddlePathUpgrades => 5;
-    public override int BottomPathUpgrades => 0;
+    public override int BottomPathUpgrades => 5;
     public override string Portrait => "Basic";
     public override string Icon => "Icon";
     public override string Description => "FOR THE REPUBLIC. The Bloons Will Know The Power Of The Republic!";
@@ -50,5 +50,6 @@ public class CloneTrooper : ModTower
 
     public override bool IsValidCrosspath(int[] tiers) =>
        ModHelper.HasMod("UltimateCrosspathing") || base.IsValidCrosspath(tiers);
+
 }
 

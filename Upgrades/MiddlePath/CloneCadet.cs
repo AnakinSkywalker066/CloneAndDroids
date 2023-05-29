@@ -8,7 +8,7 @@ namespace CloneWars.Upgrades.MiddlePath
     {
         public override string Portrait => "Middle1";
         public override string Icon => "Upgrade";
-        public override int Cost => 500;
+        public override int Cost => 1000;
         public override int Path => MIDDLE;
         public override int Tier => 1;
         public override string Description => "This Clone Is Just Getting Started";

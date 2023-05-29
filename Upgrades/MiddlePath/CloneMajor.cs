@@ -8,7 +8,7 @@ namespace CloneWars.Upgrades.MiddlePath
     {
         public override string Portrait => "Top";
         public override string Icon => "Upgrade";
-        public override int Cost => 750;
+        public override int Cost => 1250;
         public override int Path => MIDDLE;
         public override int Tier => 2;
         public override string Description => "This Soldier Is Good At Following Orders...";
@@ -19,7 +19,7 @@ namespace CloneWars.Upgrades.MiddlePath
             {
                 weaponModel.projectile.pierce += 5;
                 weaponModel.rate -= .1f;
-                
+
             }
         }
     }

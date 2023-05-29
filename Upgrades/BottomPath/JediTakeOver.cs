@@ -1,0 +1,29 @@
+﻿using BTD_Mod_Helper.Api.Towers;
+using BTD_Mod_Helper.Extensions;
+using Il2CppAssets.Scripts.Models.Towers;
+using Il2CppAssets.Scripts.Models.Towers.Behaviors;
+using Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors;
+using Il2CppAssets.Scripts.Unity;
+
+namespace CloneWars.Upgrades.BottomPath
+{
+    public class JediTakeOver : ModUpgrade<CloneTrooper>
+    {
+        public override string Portrait => "Middle4";
+        public override string Icon => "Upgrade";
+        public override int Cost => 7500;
+        public override int Path => BOTTOM;
+        public override int Tier => 4;
+        public override string Description => "Lord Sidious Now Has Complete Control Of The Republic";
+        public override void ApplyUpgrade(TowerModel towerModel)
+        {
+            
+            towerModel.IncreaseRange(+10);
+            
+            foreach (var weaponModel in towerModel.GetWeapons())
+            {
+                weaponModel.projectile.GetDamageModel().damage += 10;
+            }
+        }
+    }
+}
