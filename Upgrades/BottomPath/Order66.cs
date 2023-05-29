@@ -21,6 +21,7 @@ namespace CloneWars.Upgrades.BottomPath
             {
                 weaponModel.rate -= .1f;
                 weaponModel.projectile.pierce *= 50;
+                weaponModel.projectile.scale = 2;
                 weaponModel.projectile.GetDamageModel().damage *= 60;
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Moab", "Moab", 1, 200, false, true));
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Bfb", "Bfb", 1, 220, false, true));
