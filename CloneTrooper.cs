@@ -30,7 +30,7 @@ public class CloneTrooper : ModTower
     {
         towerModel.ApplyDisplay<CloneDisplay>();
         //Scale required for custom models to be recognized
-        towerModel.displayScale = 20;
+        towerModel.displayScale = 22.5f;
         towerModel.radius = 15;
         towerModel.range = 30;
         //Scale required for custom model to be recognized

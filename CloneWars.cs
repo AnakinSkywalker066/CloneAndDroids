@@ -3,6 +3,7 @@ using BTD_Mod_Helper.Api;
 using BTD_Mod_Helper.Extensions;
 using CloneWars;
 using Il2CppAssets.Scripts.Models;
+using Il2CppAssets.Scripts.Simulation.Bloons;
 using Il2CppAssets.Scripts.Simulation.Objects;
 using Il2CppAssets.Scripts.Simulation.Towers;
 using Il2CppAssets.Scripts.Simulation.Towers.Weapons;
@@ -28,6 +29,7 @@ public class CloneWars : BloonsTD6Mod
     {
         if (weapon.attack.tower.model.name.Contains("Clone"))
         {
+            
             weapon.attack.tower.Node.graphic.GetComponent<Animator>().StopPlayback();
             weapon.attack.tower.Node.graphic.GetComponent<Animator>().Play("Fire");
             ModContent.GetAudioClip<CloneWars>("DC15-" + new Random().Next(1, 5)).Play();
@@ -50,5 +52,6 @@ public class CloneWars : BloonsTD6Mod
             ModContent.GetAudioClip<CloneWars>("Select" + new Random().Next(1, 6)).Play();
         }
     }
+
 }
 
