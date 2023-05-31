@@ -14,7 +14,11 @@ namespace CloneWars.Upgrades.BottomPath
         public override string Description => "Lord Sidious Places A Inhibitor Chip In All Clones At Birth";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
-            towerModel.IncreaseRange(+5);
+            towerModel.IncreaseRange(+10);
+            foreach(var weaponModel in towerModel.GetWeapons())
+            {
+                weaponModel.rate += .2f;
+            }
         }
     }
 }

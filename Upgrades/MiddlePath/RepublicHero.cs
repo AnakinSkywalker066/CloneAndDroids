@@ -13,7 +13,7 @@ namespace CloneWars.Upgrades.MiddlePath
         public override int Cost => 35000;
         public override int Path => MIDDLE;
         public override int Tier => 5;
-        public override string Description => "The Republic Need A Hero A This Trooper Is Ready. Now Can Remove Fortify MOAB Class Bloons!";
+        public override string Description => "The Republic Need A Hero An This Trooper Is Ready. Now Can Remove Fortify MOAB Class Bloons!";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
             var FortifyRemove = Game.instance.model.GetTowerFromId("MortarMonkey-005").GetDescendant<RemoveBloonModifiersModel>().Duplicate();

@@ -9,7 +9,7 @@ namespace CloneWars.Upgrades.TopPath
     {
         public override string Portrait => "Cody";
         public override string Icon => "Upgrade";
-        public override int Cost => 5000;
+        public override int Cost => 2250;
         public override int Path => TOP;
         public override int Tier => 3;
         public override string Description => "Clones Sergeants Are Now Able To Destroy Enemy With Ease.";

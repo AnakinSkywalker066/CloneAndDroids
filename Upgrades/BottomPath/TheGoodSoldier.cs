@@ -15,8 +15,7 @@ namespace CloneWars.Upgrades.BottomPath
         public override string Description => "This Good Soldier Follows Orders";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
-            towerModel.IncreaseRange(-5);
-            
+                        
             foreach (var weaponModel in towerModel.GetWeapons())
             {
                 weaponModel.projectile.GetDamageModel().damage += 5;
