@@ -15,7 +15,6 @@
       <None Remove="Assets\pngkey.com-clone-trooper-png-1971930.png" />
       <None Remove="Assets\Top.png" />
       <None Remove="Assets\Top5.png" />
-      <None Remove="Assets\trooper.bundle" />
       <None Remove="Assets\Upgrade.png" />
     </ItemGroup>
 
