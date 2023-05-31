@@ -4,7 +4,7 @@
 </a>
 
 <h1 align="center">Clone Wars</h1>
-<img alt="GitHub all releases" src="https://img.shields.io/github/downloads/AnakinSkywalker066/StarWarsMod/total?label=Total%20Dowloads">
+<img alt="GitHub all releases" src="https://img.shields.io/github/downloads/AnakinSkywalker066/CloneAndDroids/total?label=Total%20Dowloads">
 
 ### Clones In Bloons!
 <img alt="githubpage" height="400" src="Assets/githubpage.png"/>
