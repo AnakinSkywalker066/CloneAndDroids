@@ -23,7 +23,7 @@ namespace CloneWars.Upgrades.BottomPath
             HealthIncrease.overRegenAmount = 0;
             var attackModel = towerModel.GetAttackModel();
             attackModel.AddBehavior(HealthIncrease);
-            
+
             foreach (var weaponModel in towerModel.GetWeapons())
             {
                 weaponModel.rate *= 1f;

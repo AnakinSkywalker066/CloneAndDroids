@@ -2,13 +2,8 @@
 using BTD_Mod_Helper.Api.Towers;
 using BTD_Mod_Helper.Extensions;
 using Il2Cpp;
-using Il2CppAssets.Scripts.Data.Cosmetics.BloonPopFXs;
 using Il2CppAssets.Scripts.Models.Towers;
-using Il2CppAssets.Scripts.Models.Towers.Behaviors;
 using Il2CppAssets.Scripts.Models.TowerSets;
-using Il2CppAssets.Scripts.Simulation.Towers.Behaviors;
-using Il2CppAssets.Scripts.Unity;
-using Il2CppAssets.Scripts.Unity.Towers.Behaviors;
 using System.Collections.Generic;
 using System.Linq;
 

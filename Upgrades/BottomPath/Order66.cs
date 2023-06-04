@@ -2,7 +2,6 @@
 using BTD_Mod_Helper.Extensions;
 using Il2CppAssets.Scripts.Models.Towers;
 using Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors;
-using Il2CppSystem.ComponentModel;
 
 namespace CloneWars.Upgrades.BottomPath
 {
@@ -17,7 +16,7 @@ namespace CloneWars.Upgrades.BottomPath
         public override void ApplyUpgrade(TowerModel towerModel)
         {
             towerModel.IncreaseRange(+10);
-            foreach(var weaponModel in towerModel.GetWeapons())
+            foreach (var weaponModel in towerModel.GetWeapons())
             {
                 weaponModel.rate -= .1f;
                 weaponModel.projectile.pierce *= 50;

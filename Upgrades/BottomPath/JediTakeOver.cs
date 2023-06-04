@@ -1,9 +1,6 @@
 ﻿using BTD_Mod_Helper.Api.Towers;
 using BTD_Mod_Helper.Extensions;
 using Il2CppAssets.Scripts.Models.Towers;
-using Il2CppAssets.Scripts.Models.Towers.Behaviors;
-using Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors;
-using Il2CppAssets.Scripts.Unity;
 
 namespace CloneWars.Upgrades.BottomPath
 {
@@ -17,9 +14,9 @@ namespace CloneWars.Upgrades.BottomPath
         public override string Description => "Lord Sidious Now Has Complete Control Of The Republic";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
-            
+
             towerModel.IncreaseRange(+10);
-            
+
             foreach (var weaponModel in towerModel.GetWeapons())
             {
                 weaponModel.projectile.GetDamageModel().damage += 10;

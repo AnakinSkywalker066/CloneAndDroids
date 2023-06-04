@@ -15,7 +15,7 @@ namespace CloneWars.Upgrades.BottomPath
         public override void ApplyUpgrade(TowerModel towerModel)
         {
             towerModel.IncreaseRange(+10);
-            foreach(var weaponModel in towerModel.GetWeapons())
+            foreach (var weaponModel in towerModel.GetWeapons())
             {
                 weaponModel.rate += .2f;
             }
