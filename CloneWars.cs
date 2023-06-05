@@ -1,12 +1,13 @@
 ﻿using BTD_Mod_Helper;
 using BTD_Mod_Helper.Api;
+using BTD_Mod_Helper.Api.Components;
 using BTD_Mod_Helper.Api.ModOptions;
-using BTD_Mod_Helper.Extensions;
 using CloneWars;
 using Il2CppAssets.Scripts.Models;
 using Il2CppAssets.Scripts.Simulation.Objects;
 using Il2CppAssets.Scripts.Simulation.Towers;
 using Il2CppAssets.Scripts.Simulation.Towers.Weapons;
+using Il2CppAssets.Scripts.Unity.UI_New.Popups;
 using MelonLoader;
 using UnityEngine;
 using Random = System.Random;
@@ -18,13 +19,6 @@ namespace CloneWars;
 
 public class CloneWars : BloonsTD6Mod
 {
-    public override void OnApplicationStart()
-    {
-        ModHelper.Msg<CloneWars>("Clone Wars Mod Has loaded!");
-        ModHelper.Msg<CloneWars>("Message Me On Discord @AnakinSkywalker066#3694 If There Are Any Bugs");
-        ModHelper.Msg<CloneWars>("This Mod Include A lot of Custom SoundEffects And Pictures");
-    }
-
     public override void OnMainMenu()
     {
         GameObject BlasterSound = Object.Instantiate(new GameObject(), GameObject.Find("Canvas").transform);
@@ -39,6 +33,12 @@ public class CloneWars : BloonsTD6Mod
         PlaceClone.name = "PlaceClone";
         PlaceClone.AddComponent<AudioSource>();
         ModHelper.Msg<CloneWars>("Placement Sound Created");
+        if (PopUp.button is true)
+        {
+            PopupScreen.instance.ShowEventPopup(PopupScreen.Placement.menuCenter, "CloneWars",
+                    "Please Verify The Volume Level In Mod Settings By Clicking On Mod Button!", "Roger Roger", null, null, null,
+                    Popup.TransitionAnim.Slide, 38);
+        }
     }
 
     public override void OnWeaponFire(Weapon weapon)
@@ -87,6 +87,12 @@ public class CloneWars : BloonsTD6Mod
         requiresRestart = false,
     };
 
+    private static readonly ModSettingBool PopUp = new(true)
+    {
+        displayName = "CloneWars Pop Up",
+        button = false,
+        requiresRestart = false,
+    };
 }
     
 

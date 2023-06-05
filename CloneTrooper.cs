@@ -1,4 +1,6 @@
-﻿using BTD_Mod_Helper;
+﻿// Ignore Spelling: Crosspath
+
+using BTD_Mod_Helper;
 using BTD_Mod_Helper.Api.Towers;
 using BTD_Mod_Helper.Extensions;
 using Il2Cpp;
