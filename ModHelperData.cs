@@ -4,7 +4,7 @@ public static class ModHelperData
 {
     public const string WorksOnVersion = "36.3";
     public const string Version = "3.1";
-    public const string Name = "Clone Wars";
+    public const string Name = "Clone Trooper";
 
     public const string Description = "Add Clones TO BTD 6:" +
         "\n · Audio is Now Controlled By InGame UI!!!";
