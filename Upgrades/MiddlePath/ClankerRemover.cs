@@ -15,7 +15,7 @@ namespace CloneWars.Upgrades.MiddlePath
         public override int Cost => 5000;
         public override int Path => MIDDLE;
         public override int Tier => 4;
-        public override string Description => "Just Like This Clone Can Remove Clankers. This Trooper Can Remove Fortifications.";
+        public override string Description => "Just Like This Clone Can Remove Clankers. This Trooper Can Remove Fortifications.(More Pierce)";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
             var FortifyRemove = Game.instance.model.GetTowerFromId("MortarMonkey-004").GetDescendant<RemoveBloonModifiersModel>().Duplicate();

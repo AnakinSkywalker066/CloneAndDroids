@@ -11,7 +11,7 @@ namespace CloneWars.Upgrades.BottomPath
         public override int Cost => 2250;
         public override int Path => BOTTOM;
         public override int Tier => 3;
-        public override string Description => "This Good Soldier Follows Orders";
+        public override string Description => "This Good Soldier Follows Orders (More Damage!)";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
 

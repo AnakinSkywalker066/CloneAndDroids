@@ -12,7 +12,7 @@ namespace CloneWars.Upgrades.TopPath
         public override int Cost => 500;
         public override int Path => TOP;
         public override int Tier => 1;
-        public override string Description => "Clones Troopers Now Have More Experience.";
+        public override string Description => "Clones Troopers Now Have More Experience.(More Damage and Pierce!)";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
             towerModel.IncreaseRange(+10);

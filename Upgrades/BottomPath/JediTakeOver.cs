@@ -11,7 +11,7 @@ namespace CloneWars.Upgrades.BottomPath
         public override int Cost => 5000;
         public override int Path => BOTTOM;
         public override int Tier => 4;
-        public override string Description => "Lord Sidious Now Has Complete Control Of The Republic";
+        public override string Description => "Lord Sidious Now Has Complete Control Of The Republic(More Range And Damage!)";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
 

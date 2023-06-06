@@ -13,7 +13,7 @@ namespace CloneWars.Upgrades.TopPath
         public override int Cost => 42000;
         public override int Path => TOP;
         public override int Tier => 5;
-        public override string Description => "Clones Troopers After A Long Journey Have Now Become An Infamous Clone Commander.(Cripple MOAB Ability!)";
+        public override string Description => "Clones Troopers After A Long Journey Have Now Become An Infamous Clone Commander.(Cripple MOAB Ability! + More Damage!)";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
             var CrippleMoab = Game.instance.model.GetTowerFromId("SniperMonkey-500").GetWeapon().projectile.GetBehavior<SlowMaimMoabModel>().Duplicate();
@@ -26,7 +26,7 @@ namespace CloneWars.Upgrades.TopPath
             attackModel.weapons[0].projectile.AddBehavior(CrippleMoab);
             foreach (var weaponModel in towerModel.GetWeapons())
             {
-                weaponModel.rate *= 2;
+                weaponModel.rate *= .7f;
                 weaponModel.projectile.pierce += 5;
                 weaponModel.projectile.GetDamageModel().damage *= 20;
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Moab", "Moab", 1, 100, false, true));

@@ -12,7 +12,7 @@ namespace CloneWars.Upgrades.MiddlePath
         public override int Cost => 1500;
         public override int Path => MIDDLE;
         public override int Tier => 3;
-        public override string Description => "THe Clone Begins To Train To Be A Sniper On The Front Lines";
+        public override string Description => "THe Clone Begins To Train To Be A Sniper On The Front Lines(Lower Firerate, More Damage and Pierce!)";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
 

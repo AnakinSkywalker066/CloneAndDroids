@@ -12,10 +12,9 @@ namespace CloneWars.Upgrades.TopPath
         public override int Cost => 2250;
         public override int Path => TOP;
         public override int Tier => 3;
-        public override string Description => "Clones Sergeants Are Now Able To Destroy Enemy With Ease.";
+        public override string Description => "Clones Sergeants Are Now Able To Destroy Enemy With Ease.(MOAB Damage!)";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
-            towerModel.IncreaseRange(+5);
             foreach (var weaponModel in towerModel.GetWeapons())
             {
                 weaponModel.projectile.GetDamageModel().damage += 10;

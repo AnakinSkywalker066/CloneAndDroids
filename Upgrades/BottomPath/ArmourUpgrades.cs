@@ -14,19 +14,19 @@ namespace CloneWars.Upgrades.BottomPath
         public override int Cost => 1000;
         public override int Path => BOTTOM;
         public override int Tier => 2;
-        public override string Description => "Lord Sidious Has Now Given The Clones Upgraded Armor(Regen Lives If Not At Max Lives)";
+        public override string Description => "Lord Sidious Has Now Given The Clones Upgraded Armor(Regen Lives!)";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
             towerModel.IncreaseRange(+10);
             var HealthIncrease = Game.instance.model.GetTowerFromId("Benjamin 6").GetDescendant<LifeRegenModel>().Duplicate();
-            HealthIncrease.regenAmount = 5;
-            HealthIncrease.overRegenAmount = 0;
+            HealthIncrease.regenAmount = 1;
+            HealthIncrease.overRegenAmount = 999;
             var attackModel = towerModel.GetAttackModel();
             attackModel.AddBehavior(HealthIncrease);
 
             foreach (var weaponModel in towerModel.GetWeapons())
             {
-                weaponModel.rate *= 1f;
+                weaponModel.rate *= .6f;
             }
 
         }

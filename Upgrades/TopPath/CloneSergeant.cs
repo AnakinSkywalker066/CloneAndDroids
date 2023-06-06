@@ -23,7 +23,7 @@ namespace CloneWars.Upgrades.TopPath
             {
                 weaponModel.projectile.pierce += 5;
                 weaponModel.projectile.GetDamageModel().damage += 5;
-                weaponModel.rate *= .8f;
+                weaponModel.rate *= .75f;
                 weaponModel.projectile.GetDamageModel().immuneBloonProperties = BloonProperties.None;
             }
         }

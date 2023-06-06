@@ -3,9 +3,12 @@
 using BTD_Mod_Helper;
 using BTD_Mod_Helper.Api.Towers;
 using BTD_Mod_Helper.Extensions;
+using HarmonyLib;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Models.Towers;
+using Il2CppAssets.Scripts.Models.Towers.Weapons;
 using Il2CppAssets.Scripts.Models.TowerSets;
+using Il2CppAssets.Scripts.Simulation.Towers.Projectiles.Behaviors;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -32,6 +35,7 @@ public class CloneTrooper : ModTower
         towerModel.IncreaseRange(+15);
         towerModel.displayScale = 20;
         //Scale required for custom model to be recognized
+        
         foreach (var weaponModel in towerModel.GetWeapons())
         {
             weaponModel.ejectX = 0.866709f;
@@ -42,8 +46,8 @@ public class CloneTrooper : ModTower
             weaponModel.projectile.GetDamageModel().damage = 2;
             weaponModel.projectile.scale = 1;
             weaponModel.projectile.GetDamageModel().immuneBloonProperties = BloonProperties.Purple;
-            weaponModel.projectile.ignorePierceExhaustion = true;
         }
+        
     }
 
     public override int GetTowerIndex(List<TowerDetailsModel> towerSet)
@@ -53,6 +57,17 @@ public class CloneTrooper : ModTower
 
     public override bool IsValidCrosspath(int[] tiers) =>
        ModHelper.HasMod("UltimateCrosspathing") || base.IsValidCrosspath(tiers);
-
+    
+    [HarmonyPatch(typeof(TravelStrait), "Initialise")]
+    internal class TravelStrait_Patch
+    {
+        [HarmonyPostfix]
+        internal static void Postfix(ref TravelStrait __instance)
+        {
+            __instance.travelStraitModel.lifespan = 300;
+            __instance.travelStraitModel.Lifespan = 300;
+            __instance.travelStraitModel.lifespanFrames = 300;
+        }
+    }
 }
 

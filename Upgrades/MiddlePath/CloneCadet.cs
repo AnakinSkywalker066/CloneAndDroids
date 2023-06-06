@@ -11,7 +11,7 @@ namespace CloneWars.Upgrades.MiddlePath
         public override int Cost => 1000;
         public override int Path => MIDDLE;
         public override int Tier => 1;
-        public override string Description => "This Clone Is Just Getting Started";
+        public override string Description => "This Clone Is Just Getting Started(Lower Fire Rate, More Pierce!)";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
 
