@@ -1,17 +1,17 @@
 ﻿using BTD_Mod_Helper;
-using BTD_Mod_Helper.Api;
-using BTD_Mod_Helper.Api.Components;
 using BTD_Mod_Helper.Api.ModOptions;
 using CloneWars;
 using Il2CppAssets.Scripts.Models;
 using Il2CppAssets.Scripts.Simulation.Objects;
 using Il2CppAssets.Scripts.Simulation.Towers;
 using Il2CppAssets.Scripts.Simulation.Towers.Weapons;
+using Il2CppAssets.Scripts.Unity.Audio;
 using Il2CppAssets.Scripts.Unity.UI_New.Popups;
+using Il2CppInterop.Runtime.Injection;
 using MelonLoader;
+using System;
 using UnityEngine;
-using Random = System.Random;
-
+using static BTD_Mod_Helper.Api.ModContent;
 [assembly: MelonInfo(typeof(CloneWars.CloneWars), ModHelperData.Name, ModHelperData.Version, ModHelperData.RepoOwner)]
 [assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
 
@@ -19,20 +19,14 @@ namespace CloneWars;
 
 public class CloneWars : BloonsTD6Mod
 {
+    public override void OnApplicationStart()
+    {
+        ClassInjector.RegisterTypeInIl2Cpp<CloneSound>();
+    }
+
     public override void OnMainMenu()
     {
-        GameObject BlasterSound = Object.Instantiate(new GameObject(), GameObject.Find("Canvas").transform);
-        BlasterSound.name = "CloneFireSound";
-        BlasterSound.AddComponent<AudioSource>();
-        ModHelper.Msg<CloneWars>("Blaster Sounds Created");
-        GameObject SelectClone = Object.Instantiate(new GameObject(), GameObject.Find("Canvas").transform);
-        SelectClone.name = "CloneSelection";
-        SelectClone.AddComponent<AudioSource>();
-        ModHelper.Msg<CloneWars>("Selection Sound Created");
-        GameObject PlaceClone = Object.Instantiate(new GameObject(), GameObject.Find("Canvas").transform);
-        PlaceClone.name = "PlaceClone";
-        PlaceClone.AddComponent<AudioSource>();
-        ModHelper.Msg<CloneWars>("Placement Sound Created");
+
         if (PopUp.button is true)
         {
             PopupScreen.instance.ShowEventPopup(PopupScreen.Placement.menuCenter, "CloneWars",
@@ -46,12 +40,10 @@ public class CloneWars : BloonsTD6Mod
 
         if (weapon.attack.tower.model.name.Contains("Clone"))
         {
-            GameObject.Find("CloneFireSound").GetComponent<AudioSource>().Stop();
-            GameObject.Find("CloneFireSound").GetComponent<AudioSource>().clip = ModContent.GetAudioClip<CloneWars>("DC15-" + new Random().Next(1, 5));
-            GameObject.Find("CloneFireSound").GetComponent<AudioSource>().volume = ModSoundSetting;
             weapon.attack.tower.Node.graphic.GetComponent<Animator>().StopPlayback();
             weapon.attack.tower.Node.graphic.GetComponent<Animator>().Play("Fire");
-            GameObject.Find("CloneFireSound").GetComponent<AudioSource>().Play();
+            CloneSound.StopSound();
+            CloneSound.PlaySound("DC15-" + new System.Random().Next(1, 5));
         }
     }
 
@@ -59,10 +51,8 @@ public class CloneWars : BloonsTD6Mod
     {
         if (tower.model.name.Contains("Clone"))
         {
-            GameObject.Find("PlaceClone").GetComponent<AudioSource>().Stop();
-            GameObject.Find("PlaceClone").GetComponent<AudioSource>().clip = ModContent.GetAudioClip<CloneWars>("ClonePlace" + new Random().Next(1, 5));
-            GameObject.Find("PlaceClone").GetComponent<AudioSource>().volume = ModSoundSetting;
-            GameObject.Find("PlaceClone").GetComponent<AudioSource>().Play();
+            CloneSound.StopSound();
+            CloneSound.PlaySound("ClonePlace" + new System.Random().Next(1, 5));
         }
     }
 
@@ -71,21 +61,10 @@ public class CloneWars : BloonsTD6Mod
 
         if (tower.model.name.Contains("Clone"))
         {
-            GameObject.Find("CloneSelection").GetComponent<AudioSource>().Stop();
-            GameObject.Find("CloneSelection").GetComponent<AudioSource>().clip = ModContent.GetAudioClip<CloneWars>("Select" + new Random().Next(1, 6));
-            GameObject.Find("CloneSelection").GetComponent<AudioSource>().volume = ModSoundSetting;
-            GameObject.Find("CloneSelection").GetComponent<AudioSource>().Play();
+            CloneSound.StopSound();
+            CloneSound.PlaySound("Select" + new System.Random().Next(1, 6));
         }
     }
-
-    private static readonly ModSettingDouble ModSoundSetting = new(1)
-    {
-        displayName = "SoundEffects",
-        slider = true,
-        min = .01,
-        max = 1,
-        requiresRestart = false,
-    };
 
     private static readonly ModSettingBool PopUp = new(true)
     {
@@ -93,10 +72,18 @@ public class CloneWars : BloonsTD6Mod
         button = false,
         requiresRestart = false,
     };
+
+    public override void OnAudioFactoryStart(AudioFactory audioFactory)
+    {
+        var bundle = GetBundle<CloneWars>("blaster");
+        var bundleRequest = bundle.LoadAllAssetsAsync<AudioClip>();
+        if (bundleRequest is null)
+        {
+            Console.WriteLine("Cannot Find");
+        }
+        foreach (UnityEngine.Object asset in bundleRequest.allAssets)
+        {
+            audioFactory.RegisterAudioClip(asset.name, asset.Cast<AudioClip>());
+        }
+    }
 }
-    
-
-
-    
-
-
