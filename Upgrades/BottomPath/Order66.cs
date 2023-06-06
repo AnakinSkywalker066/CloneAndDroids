@@ -12,7 +12,7 @@ namespace CloneWars.Upgrades.BottomPath
         public override int Cost => 66000;
         public override int Path => BOTTOM;
         public override int Tier => 5;
-        public override string Description => "Order 66 Has Now Be Received! No MOAB Class Bloon Stands A Chance";
+        public override string Description => "Order 66 Has Now Be Received! No MOAB Class Bloon Stands A Chance(Massive MOAB Damage!)";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
             towerModel.IncreaseRange(+10);

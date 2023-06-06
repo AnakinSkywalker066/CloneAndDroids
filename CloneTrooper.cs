@@ -42,6 +42,7 @@ public class CloneTrooper : ModTower
             weaponModel.projectile.GetDamageModel().damage = 2;
             weaponModel.projectile.scale = 1;
             weaponModel.projectile.GetDamageModel().immuneBloonProperties = BloonProperties.Purple;
+            weaponModel.projectile.ignorePierceExhaustion = true;
         }
     }
 

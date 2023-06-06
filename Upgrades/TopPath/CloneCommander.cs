@@ -13,7 +13,7 @@ namespace CloneWars.Upgrades.TopPath
         public override int Cost => 42000;
         public override int Path => TOP;
         public override int Tier => 5;
-        public override string Description => "Clones Troopers After A Long Journey Have Now Become An Infamous Clone Commander.";
+        public override string Description => "Clones Troopers After A Long Journey Have Now Become An Infamous Clone Commander.(Cripple MOAB Ability!)";
         public override void ApplyUpgrade(TowerModel towerModel)
         {
             var CrippleMoab = Game.instance.model.GetTowerFromId("SniperMonkey-500").GetWeapon().projectile.GetBehavior<SlowMaimMoabModel>().Duplicate();

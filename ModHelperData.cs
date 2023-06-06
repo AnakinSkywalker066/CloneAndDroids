@@ -3,7 +3,7 @@
 public static class ModHelperData
 {
     public const string WorksOnVersion = "36.3";
-    public const string Version = "v3.0";
+    public const string Version = "3.0";
     public const string Name = "Clone Wars";
 
     public const string Description = "Add Clones TO BTD 6:" +
