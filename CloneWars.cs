@@ -77,10 +77,6 @@ public class CloneWars : BloonsTD6Mod
     {
         var bundle = GetBundle<CloneWars>("blaster");
         var bundleRequest = bundle.LoadAllAssetsAsync<AudioClip>();
-        if (bundleRequest is null)
-        {
-            Console.WriteLine("Cannot Find");
-        }
         foreach (UnityEngine.Object asset in bundleRequest.allAssets)
         {
             audioFactory.RegisterAudioClip(asset.name, asset.Cast<AudioClip>());

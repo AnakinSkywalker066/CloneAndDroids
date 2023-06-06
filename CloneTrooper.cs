@@ -6,6 +6,7 @@ using BTD_Mod_Helper.Extensions;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Models.Towers;
 using Il2CppAssets.Scripts.Models.TowerSets;
+using Il2CppAssets.Scripts.Unity.Towers.Behaviors.Attack.Behaviors;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,6 +14,7 @@ namespace CloneWars;
 
 public class CloneTrooper : ModTower
 {
+    
     public override TowerSet TowerSet => TowerSet.Military;
     public override string BaseTower => TowerType.DartMonkey;
     public override int Cost => 500;
@@ -26,19 +28,19 @@ public class CloneTrooper : ModTower
     public override void ModifyBaseTowerModel(TowerModel towerModel)
     {
         towerModel.ApplyDisplay<CloneDisplay>();
+        towerModel.towerSize = TowerModel.TowerSize.medium;
         //Scale required for custom models to be recognized
-        towerModel.displayScale = 22.5f;
-        towerModel.radius = 15;
-        towerModel.range = 30;
+        towerModel.IncreaseRange(+15);
+        towerModel.displayScale = 20;
         //Scale required for custom model to be recognized
         foreach (var weaponModel in towerModel.GetWeapons())
         {
             weaponModel.ejectX = 0.866709f;
             weaponModel.ejectZ = 24.2906f;
             weaponModel.projectile.ApplyDisplay<BoltDisplay>();
-            weaponModel.Rate = 1;
+            weaponModel.Rate = .85f;
             weaponModel.projectile.pierce = 10;
-            weaponModel.projectile.GetDamageModel().damage = 1;
+            weaponModel.projectile.GetDamageModel().damage = 2;
             weaponModel.projectile.scale = 1;
             weaponModel.projectile.GetDamageModel().immuneBloonProperties = BloonProperties.Purple;
         }

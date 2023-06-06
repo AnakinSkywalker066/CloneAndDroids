@@ -31,7 +31,7 @@ namespace CloneWars.Upgrades.MiddlePath
             {
                 weaponModel.projectile.AddBehavior(FortifyRemove);
                 weaponModel.projectile.pierce *= 10;
-                weaponModel.rate -= .1f;
+                
             }
             towerModel.IncreaseRange(+20);
 

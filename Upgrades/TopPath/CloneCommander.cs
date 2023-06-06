@@ -26,6 +26,7 @@ namespace CloneWars.Upgrades.TopPath
             attackModel.weapons[0].projectile.AddBehavior(CrippleMoab);
             foreach (var weaponModel in towerModel.GetWeapons())
             {
+                weaponModel.rate *= 2;
                 weaponModel.projectile.pierce += 5;
                 weaponModel.projectile.GetDamageModel().damage *= 20;
                 weaponModel.projectile.AddBehavior(new DamageModifierForTagModel("Moab", "Moab", 1, 100, false, true));
