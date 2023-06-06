@@ -6,7 +6,6 @@ using BTD_Mod_Helper.Extensions;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Models.Towers;
 using Il2CppAssets.Scripts.Models.TowerSets;
-using Il2CppAssets.Scripts.Unity.Towers.Behaviors.Attack.Behaviors;
 using System.Collections.Generic;
 using System.Linq;
 

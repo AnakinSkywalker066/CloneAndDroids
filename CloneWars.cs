@@ -1,15 +1,12 @@
 ﻿using BTD_Mod_Helper;
-using BTD_Mod_Helper.Api.ModOptions;
 using CloneWars;
 using Il2CppAssets.Scripts.Models;
 using Il2CppAssets.Scripts.Simulation.Objects;
 using Il2CppAssets.Scripts.Simulation.Towers;
 using Il2CppAssets.Scripts.Simulation.Towers.Weapons;
 using Il2CppAssets.Scripts.Unity.Audio;
-using Il2CppAssets.Scripts.Unity.UI_New.Popups;
 using Il2CppInterop.Runtime.Injection;
 using MelonLoader;
-using System;
 using UnityEngine;
 using static BTD_Mod_Helper.Api.ModContent;
 [assembly: MelonInfo(typeof(CloneWars.CloneWars), ModHelperData.Name, ModHelperData.Version, ModHelperData.RepoOwner)]
