@@ -24,17 +24,6 @@ public class CloneWars : BloonsTD6Mod
         ClassInjector.RegisterTypeInIl2Cpp<CloneSound>();
     }
 
-    public override void OnMainMenu()
-    {
-
-        if (PopUp.button is true)
-        {
-            PopupScreen.instance.ShowEventPopup(PopupScreen.Placement.menuCenter, "CloneWars",
-                    "Please Verify The Volume Level In Mod Settings By Clicking On Mod Button!", "Roger Roger", null, null, null,
-                    Popup.TransitionAnim.Slide, 38);
-        }
-    }
-
     public override void OnWeaponFire(Weapon weapon)
     {
 
@@ -65,13 +54,6 @@ public class CloneWars : BloonsTD6Mod
             CloneSound.PlaySound("Select" + new System.Random().Next(1, 6));
         }
     }
-
-    private static readonly ModSettingBool PopUp = new(true)
-    {
-        displayName = "CloneWars Pop Up",
-        button = false,
-        requiresRestart = false,
-    };
 
     public override void OnAudioFactoryStart(AudioFactory audioFactory)
     {
