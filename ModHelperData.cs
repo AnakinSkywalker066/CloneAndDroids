@@ -8,7 +8,8 @@ public static class ModHelperData
 
     public const string Description = "Add Clones TO BTD 6:" +
         "\n · Audio is Now Controlled By InGame UI!!!" +
-        "\n · Now Updated To v37.0!";
+        "\n · Now Updated To v37.0!" +
+        "\n · Custom Sounds and Animations!!!";
 
     public const string RepoOwner = "AnakinSkywalker066"; // TODO add your github username hero, also in the download url in README.md
     public const string RepoName = "CloneAndDroids"; // TODO add your repo name here, also in the download url in README.md
