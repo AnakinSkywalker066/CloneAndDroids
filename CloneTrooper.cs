@@ -6,7 +6,6 @@ using BTD_Mod_Helper.Extensions;
 using HarmonyLib;
 using Il2Cpp;
 using Il2CppAssets.Scripts.Models.Towers;
-using Il2CppAssets.Scripts.Models.Towers.Weapons;
 using Il2CppAssets.Scripts.Models.TowerSets;
 using Il2CppAssets.Scripts.Simulation.Towers.Projectiles.Behaviors;
 using System.Collections.Generic;
