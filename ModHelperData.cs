@@ -11,6 +11,6 @@ public static class ModHelperData
         "\n · Now Updated To v37.0!" +
         "\n · Custom Sounds and Animations!!!";
 
-    public const string RepoOwner = "AnakinBackup"; // TODO add your github username hero, also in the download url in README.md
+    public const string RepoOwner = "AnakinSkywalker066"; // TODO add your github username hero, also in the download url in README.md
     public const string RepoName = "CloneWars"; // TODO add your repo name here, also in the download url in README.md
 }
